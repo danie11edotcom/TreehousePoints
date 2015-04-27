@@ -1,0 +1,90 @@
+/*Body Styles*/
+body {
+  background-color: #edeff0;          /* #dfdfdf;*/
+  font-family: 'Open Sans', sans-serif;
+  padding: 30px 0 0 0;
+}
+
+/* Header Styles */
+header {
+  width: 80%;
+  border: 2px solid white;
+  margin-bottom: 0.75em;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 1px 0px 0px rgba(0,0,0, 0.1);
+}
+
+h1 {
+  font-size: 2em;
+}
+
+/* Form Styles */
+
+label {
+  display: block; 
+}
+
+input {
+  display: block;
+  margin: 20px auto;
+}
+
+button {
+  display: block;
+  margin: 0 auto 20px auto;
+/*  background-color: #5fcf80;
+  color: #fff;*/
+}
+
+/* Body Styles */
+main {
+  text-align: center;
+  display: none;
+}
+
+#message {
+ padding-top: 1em; 
+ font-size: 1.25em;
+}
+
+section {
+  background-color: #fff;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  box-shadow: 0px 1px 0px 0px rgba(0,0,0, 0.1);
+}
+
+#footnote {
+  text-align: center; 
+  display: none;
+}
+
+/* Set chart topic colors to match Treehouse */
+
+.html { fill: #39ADD1; }
+.css { fill: #3079AB;}
+.design { fill: #e59a13;}
+.javascript {  fill: #c25975; }
+.ruby { fill: #e15258;}
+.php { fill: #7D669E;}
+.wordpress { fill: #838CC7;}
+.ios { fill: #53BBB4;}
+.android { fill: #5cb860; }
+.development_tools { fill: #637a91;}
+.business { fill: #F9845B;}
+.python { fill: #f092b0;}
+.java { fill: #2c9676;}
+.digital_literacy { fill: #c38cd4;}
+
+/*Data values (svg text elements) styles*/
+.text {
+  text-anchor: start;
+  alignment-base: middle;
+  font-weight: bold;  
+}

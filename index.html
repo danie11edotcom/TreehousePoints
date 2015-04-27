@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--Below link tells IE to use Google Chrome Frame if installed http://www.triballabs.net/2013/02/the-basics-of-responsive-d3-charts/ -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type"text/css" href="css/style.css">
+    <title>Profile Points</title>
+  </head>
+  <body>
+    <header>
+      <h1>Treehouse Profile App</h1>
+      <form>
+        <label>Enter a Treehouse profile name to show student points</label>
+        <input type="text" id="input" placeholder="daniellehill2" autofocus/>
+        <!--should this be an <input> or <button>?????-->
+        <input type="submit" id="submit" value="Show Points" />
+      </form>
+    </header>
+    <main>
+      <section>
+      <p id="message"></p>
+        <div id="chart"></div>
+      </section>
+    </main>
+    <footer>
+      <p id="footnote"></p>
+    </footer>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
