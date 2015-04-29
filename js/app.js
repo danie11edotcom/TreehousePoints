@@ -83,10 +83,8 @@ $(document).ready(function () {
         var topicsArr = topics(data);
 
         //set SVG size variables -- need to be based on container size for resizing
-/*        var w = 800;
-        var h = 450;*/
-        var w = parseInt(d3.select('#chart').style('width'), 10),
-            h = w * 0.5625;
+        var w = 800;
+        var h = 450;
         var padding = 4;
 
         //set linear scale for x-axis
@@ -148,28 +146,6 @@ $(document).ready(function () {
             .attr("class", "text")
             .style("display", function (d) { return d[1] === 0 ? "none" : "inline"; });       //hide zero values
 
-        //Resize chart when window resizes  --  http://eyeseast.github.io/visible-data/2013/08/28/responsive-charts-with-d3/
-        d3.select(window).on('resize', resize);
-      
-        function resize () {
-          //update width
-          width = parseInt(d3.select('#chart').style('width'), 10);
-          
-          //resize the chart
-          xScale.range([0, w-padding]);
-          d3.select(svg.node().parentNode)
-            .style('height', h + 'px')
-            .style('width', width + 'px');
-                        
-          svg.selectAll('rect')
-             .attr("width", function (d) {
-                      return xScale(d[1]);
-                    });
-          
-        }  //end resize function
-      
-        
-      
       //************************************************end d3.js code*************************************************************
 
         //Enable input and revert submit button message
@@ -197,10 +173,8 @@ $(document).ready(function () {
       }); //end fail
     
   });   //end submit
-  
+    
 });    //end ready
-
-
 
 
 
