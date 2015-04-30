@@ -60,8 +60,8 @@ section {
   box-shadow: 0px 1px 0px 0px rgba(0,0,0, 0.1);
 }
 
-#chart {
- width: 100%; 
+svg {
+  width: 90%; 
 }
 
 #footnote {
@@ -92,3 +92,16 @@ section {
   alignment-base: middle;
   font-weight: bold;  
 }
+
+/****Media Queries*******/
+
+/* 
+-set svg width to 80 percent on largest screen size
+-change font size on larger sizes
+
+*/
+ 
+
+
+
+
