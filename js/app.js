@@ -83,8 +83,8 @@ $(document).ready(function () {
         var topicsArr = topics(data);
 
         //set SVG size variables -- need to be based on container size for resizing
-        var w = 800;
-        var h = 450;
+        var w = 550;          // 800 / 450=1.777777
+        var h = 309.51;
         var padding = 4;
 
         //set linear scale for x-axis
@@ -100,8 +100,10 @@ $(document).ready(function () {
         //create SVG
         var svg = d3.select("#chart")
                   .append("svg")
-                  .attr("width", w)
-                  .attr("height", h);
+/*                  .attr("width", w)                                                     //and remove setting width and height
+                  .attr("height", h)*/
+                  .attr("viewBox", "0 0 " + w + " " + h + "" )       //set viewBox and perserveAspectRatio for responsiveness 
+                  .attr("perserveAspectRatio", "xMinYMin");
 
         //create chart using svg rect bound to data
           svg.selectAll("rect")
@@ -116,8 +118,6 @@ $(document).ready(function () {
                       return xScale(d[1]);
                     })
               .attr("height", (h / data.length) - padding )
-/*              .attr("viewBox", function () {return "0 0 " + w + " " + h + ""} )       //set viewBox and perserveAspectRatio for responsiveness
-              .attr("perserveAspectRatio", "xMinYMin")*/
               .attr("class", function (d) {return d[2]});
 
         //add labels
