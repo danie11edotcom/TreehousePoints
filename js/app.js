@@ -137,7 +137,7 @@ $(document).ready(function () {
                     return i * (h / data.length) + (h/2 * Math.pow(data.length, -0.942));     
                   })
             .attr("font-family", "sans-serif")
-            .attr("font-size", "1em")
+/*            .attr("font-size", "1em")*/
             .attr("fill", function (d) {                                                      //choose text color based on data value
                     /*return ( d[1] < 50  ? "#000" :  "#fff");*/
                     /*return ( xScale(d[1]) < (0.010 * w) ? "#000" :  "#fff");*/
