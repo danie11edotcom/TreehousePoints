@@ -88,7 +88,7 @@ $(document).ready(function () {
 
         //set SVG size variables -- need to be based on container size for resizing
         var w = 550;          // Originial Aspect Ration: 800 / 450 = 1.777777
-        var h = 550;
+        var h = 350;
         var padding = 4;
 
         //set linear scale for x-axis
