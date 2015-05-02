@@ -1,6 +1,6 @@
 /*Body Styles*/
 body {
-  background-color: #edeff0;          /* #dfdfdf;*/
+  background-color: #edeff0;
   font-family: 'Open Sans', sans-serif;
   padding: 30px 0 0 0;
 }
@@ -36,8 +36,6 @@ input {
 button {
   display: block;
   margin: 0 auto 20px auto;
-/*  background-color: #5fcf80;
-  color: #fff;*/
 }
 
 /* Body Styles */
