@@ -1,4 +1,8 @@
-//Treehouse Profile App
+//  Treehouse Profile App
+//  Danielle Hill
+//  http://www.danie11e.com
+//  GitHub: danie11edotcom
+//  2015
 
 //use strict declaration
 'use strict';
