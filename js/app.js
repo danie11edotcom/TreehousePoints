@@ -138,11 +138,7 @@ $(document).ready(function () {
                   })
             .attr("font-family", "sans-serif")
 /*            .attr("font-size", "1em")*/
-            .attr("fill", function (d) {                                                      //choose text color based on data value
-                    /*return ( d[1] < 50  ? "#000" :  "#fff");*/
-                    /*return ( xScale(d[1]) < (0.010 * w) ? "#000" :  "#fff");*/
-                    return "black";
-                  })
+            .attr("fill", "black")
             .attr("class", "text")
             .style("display", function (d) { return d[1] === 0 ? "none" : "inline"; });       //hide zero values
 
