@@ -150,6 +150,9 @@ $(document).ready(function () {
 
     } //end execute() function definition
   
+    //Add support for IE9 jQuery AJAX
+    jQuery.support.cors = true
+    
     $.getJSON(jsonPath, execute)
      .fail(function() {
         //log error to console
