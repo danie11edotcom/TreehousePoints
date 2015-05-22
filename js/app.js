@@ -87,8 +87,8 @@ $(document).ready(function () {
         var topicsArr = topics(data);
 
         //set SVG size variables -- need to be based on container size for resizing
-        var w = 550;          // Originial Aspect Ration: 800 / 450 = 1.777777
-        var h = 350;
+        var w = 800;          // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
+        var h = 533;
         var padding = 4;
 
         //set linear scale for x-axis
