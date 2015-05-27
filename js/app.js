@@ -1,4 +1,8 @@
-//Treehouse Profile App
+//  Treehouse Profile App
+//  Danielle Hill
+//  http://www.danie11e.com
+//  GitHub: danie11edotcom
+//  2015
 
 //use strict declaration
 'use strict';
@@ -52,13 +56,13 @@ $(document).ready(function () {
         }        
        }
 
-        //sort dataRaw ascending and store as data to pass to d3.js
+        //sort dataRaw ascending using Bostock's descending function and store as data to pass to d3.js
        var data = [];
        data = dataRaw.sort(function descending(a, b) {
             return b[1] < a[1] ? -1 : b[1] > a[1] ? 1 : b[1] >= a[1] ? 0 : NaN;
         });
 
-        //create 3rd item to each array with css class name to pass to d3
+        //create 3rd item in each array with css class name to pass to d3
         for (var i=0; i<data.length; i++) {
             //using index [i][0] replace spaces with underscore and make lowercase and assign to index [i][2]
             data[i][2] = data[i][0].replace(/\s/g,'_').toLowerCase();
@@ -82,9 +86,9 @@ $(document).ready(function () {
                      }
         var topicsArr = topics(data);
 
-        //set SVG size variables
-        var w = 800;
-        var h = 450;
+        //set SVG size variables -- need to be based on container size for resizing
+        var w = 800;          // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
+        var h = 533;
         var padding = 4;
 
         //set linear scale for x-axis
@@ -101,7 +105,9 @@ $(document).ready(function () {
         var svg = d3.select("#chart")
                   .append("svg")
                   .attr("width", w)
-                  .attr("height", h);
+                  .attr("height", h)                                    //added width and height to test effect in browsers with vB and pAR
+                  .attr("viewBox", "0 0 " + w + " " + h + "" )          //set viewBox and perserveAspectRatio for responsiveness 
+                  .attr("perserveAspectRatio", "xMinYMin");
 
         //create chart using svg rect bound to data
           svg.selectAll("rect")
@@ -116,8 +122,6 @@ $(document).ready(function () {
                       return xScale(d[1]);
                     })
               .attr("height", (h / data.length) - padding )
-/*              .attr("viewBox", function () {return "0 0 " + w + " " + h + ""} )       //set viewBox and perserveAspectRatio for responsiveness
-              .attr("perserveAspectRatio", "xMinYMin")*/
               .attr("class", function (d) {return d[2]});
 
         //add labels
@@ -137,28 +141,24 @@ $(document).ready(function () {
                     return i * (h / data.length) + (h/2 * Math.pow(data.length, -0.942));     
                   })
             .attr("font-family", "sans-serif")
-            .attr("font-size", "1em")
-            .attr("fill", function (d) {                                                      //choose text color based on data value
-                    /*return ( d[1] < 50  ? "#000" :  "#fff");*/
-                    /*return ( xScale(d[1]) < (0.010 * w) ? "#000" :  "#fff");*/
-                    return "black";
-                  })
-            .attr("class", "text")
-            .style("display", function (d) { return d[1] === 0 ? "none" : "inline"; });       //hide zero values
+            .attr("fill", "black")
+            .attr("class", "text");
 
-      
       //************************************************end d3.js code*************************************************************
 
-        //Enable input and revert submit button message
+        //Enable input and revert submit button message back to original message
         $inputField.prop("disabled", false);
         $submitButton.attr("disabled", false).val("Show Points");   
 
-    }   //end execute() function definition
+    } //end execute() function definition
   
+    //Add support for IE9 jQuery AJAX
+    jQuery.support.cors = true
+    
     $.getJSON(jsonPath, execute)
      .fail(function() {
         //log error to console
-        console.log("error")
+        console.log("Error: JSON not found, profile name does not exist")
         
         //show message that profile was not found
         $('#message').html("Sorry, no profiles match " + user + ". Try another name like daniellehill2 or mikethefrog");
@@ -174,10 +174,8 @@ $(document).ready(function () {
       }); //end fail
     
   });   //end submit
-  
+    
 });    //end ready
-
-
 
 
 

@@ -1,31 +1,33 @@
 /*Body Styles*/
 body {
-  background-color: #edeff0;          /* #dfdfdf;*/
+  background-color: #edeff0;
   font-family: 'Open Sans', sans-serif;
   padding: 30px 0 0 0;
 }
 
 /* Header Styles */
 header {
-  width: 80%;
+  width: 95%;
   border: 2px solid white;
   margin-bottom: 0.75em;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0px 1px 0px 0px rgba(0,0,0, 0.1);
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0, 0.1);
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2.125em;
 }
 
 /* Form Styles */
 
 label {
   display: block; 
+  font-size: 1.125em;
+  padding: 0 0.25em;
 }
 
 input {
@@ -36,8 +38,6 @@ input {
 button {
   display: block;
   margin: 0 auto 20px auto;
-/*  background-color: #5fcf80;
-  color: #fff;*/
 }
 
 /* Body Styles */
@@ -46,18 +46,25 @@ main {
   display: none;
 }
 
-#message {
- padding-top: 1em; 
- font-size: 1.25em;
-}
-
 section {
   background-color: #fff;
-  width: 80%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 8px;
-  box-shadow: 0px 1px 0px 0px rgba(0,0,0, 0.1);
+  border-radius: 6px;
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0, 0.1);
+}
+
+#message {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1em; 
+  font-size: 1.25em;
+}
+
+svg {
+  width: 85%; 
 }
 
 #footnote {
@@ -86,5 +93,22 @@ section {
 .text {
   text-anchor: start;
   alignment-base: middle;
-  font-weight: bold;  
+/*  font-weight: bold; */ 
+}
+
+/****Media Queries*******/
+@media screen and (min-width: 53em) {
+  header, 
+  section { width: 80%; 
+            border-radius: 8px;
+            box-shadow: 0px 1px 0px 0px rgba(0,0,0, 0.1);
+  }
+  h1      {
+            font-size: 2em;
+  }
+  svg     {
+            width: 80%;
+}
+  .text   {
+            font-size: .85em;
 }
