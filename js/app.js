@@ -146,7 +146,7 @@ $(document).ready(function () {
 
       //************************************************end d3.js code*************************************************************
 
-        //Enable input and revert submit button message backt original
+        //Enable input and revert submit button message back to original message
         $inputField.prop("disabled", false);
         $submitButton.attr("disabled", false).val("Show Points");   
 
