@@ -174,12 +174,16 @@ $(document).ready(function () {
       }); //end fail
 
       //use HTML History API to update URL and allow back and forward navigation
-      //create state Object to pass to pushState method of history
-      var stateObject = {
-          title: "Treehouse Points",
-          url: "/"+ user
-      }  
-      window.history.pushState(stateObject, stateObject.title,stateObject.url);
+        //update page content when popstate is fired
+
+        //create state Object to pass to pushState method
+        var pageData = {
+            title: "Treehouse Points",
+            url: "/"+ user
+        };  
+
+        history.pushState(pageData, pageData.title, pageData.url);
+        //url is updating; next get content corresponding to that page to load
     
   });   //end submit
     
