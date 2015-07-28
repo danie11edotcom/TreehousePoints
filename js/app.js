@@ -179,7 +179,7 @@ $(document).ready(function () {
         //create state Object to pass to pushState method
         var pageData = {
             title: "Treehouse Points",
-            url: "/"+ user
+            url: "/#"+ user
         };  
 
         history.pushState(pageData, pageData.title, pageData.url);
