@@ -172,6 +172,14 @@ $(document).ready(function () {
         $submitButton.attr("disabled", false).val("Show Points")
               
       }); //end fail
+
+      //use HTML History API to update URL and allow back and forward navigation
+      //create state Object to pass to pushState method of history
+      var stateObject = {
+          title: "Treehouse Points",
+          url: "/"+ user
+      }  
+      window.history.pushState(stateObject, stateObject.title,stateObject.url);
     
   });   //end submit
     
