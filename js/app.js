@@ -148,12 +148,13 @@ $(document).ready(function () {
 
         //Enable input and revert submit button message back to original message
         $inputField.prop("disabled", false);
-        $submitButton.attr("disabled", false).val("Show Points");   
+        $submitButton.attr("disabled", false).val("Show Points");  
+        $("#input").focus();
 
     } //end execute() function definition
   
     //Add support for IE9 jQuery AJAX
-    jQuery.support.cors = true
+    jQuery.support.cors = true;
     
     $.getJSON(jsonPath, execute)
      .fail(function() {
@@ -186,8 +187,5 @@ $(document).ready(function () {
         //url is updating; next get content corresponding to that page to load
     
   });   //end submit
-    
 });    //end ready
-
-
 
