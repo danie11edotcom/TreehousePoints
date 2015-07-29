@@ -69,7 +69,7 @@ $(document).ready(function () {
         }
 
         //add message to <main> section and make it visible
-        $('#message').html(name + " has earned " + totalPoints + " total points in " + data.length + " different skills!");
+        $('#message').html(name + " has earned " + totalPoints + " total points in " + data.length + " different categories!");
         $('main').show();
       
         //Add jsonPath to footer and make visible
@@ -171,6 +171,7 @@ $(document).ready(function () {
         //Enable input and revert submit button message
         $inputField.prop("disabled", false);
         $submitButton.attr("disabled", false).val("Show Points")
+        $("#input").focus();
               
       }); //end fail
 
