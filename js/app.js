@@ -162,7 +162,7 @@ $(document).ready(function () {
         console.log("Error: JSON not found, profile name does not exist")
         
         //show message that profile was not found
-        $('#message').html("Sorry, no profiles match " + user + ". Try another name like daniellehill2 or mikethefrog");
+        $('#message').html("Sorry, no profiles match " + user + ". Try another name like <a href=\"#daniellehill2\">daniellehill2</a> or <a href=\"#mikethefrog\">mikethefrog</a>");
         $('main').show();
       
         //clear #chart contents (prevents a previously displayed chart from showing)
@@ -172,12 +172,11 @@ $(document).ready(function () {
         $inputField.prop("disabled", false);
         $submitButton.attr("disabled", false).val("Show Points")
         $("#input").focus();
+
               
       }); //end fail
 
       //use HTML History API to update URL and allow back and forward navigation
-        //update page content when popstate is fired
-
         //create state Object to pass to pushState method
         var pageData = {
             title: "Treehouse Points",
