@@ -55,6 +55,12 @@ section {
   box-shadow: 0px 2px 0px 0px rgba(0,0,0, 0.1);
 }
 
+img {
+  margin-top: 1.5em;
+  border: 8px solid #edeff0; /*edeff0*/
+  border-radius: 50%;
+}
+
 #message {
   width: 90%;
   margin-left: auto;
