@@ -39,6 +39,7 @@ $(document).ready(function () {
       var name = info.name;                                          //name of user (not the same same as profile name)
       var points = info.points;
       var totalPoints = points.total;
+      var gravatar = info.gravatar_url;
       
       //copy points object from JSON so changes are not made to points and points is accesible later in the same state it was when download
       //copy technique from http://heyjavascript.com/4-creative-ways-to-clone-objects/
@@ -68,7 +69,11 @@ $(document).ready(function () {
             data[i][2] = data[i][0].replace(/\s/g,'_').toLowerCase();
         }
 
-        //add message to <main> section and make it visible
+        //add message and gravatar to <main> section and make it visible
+        $('#gravatar').attr({
+            src: gravatar,
+            alt: "user profile picture"
+        });
         $('#message').html(name + " has earned " + totalPoints + " total points in " + data.length + " different skills!");
         $('main').show();
       
