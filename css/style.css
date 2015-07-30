@@ -2,7 +2,7 @@
 body {
   background-color: #edeff0;
   font-family: 'Open Sans', sans-serif;
-  padding: 30px 0 0 0;
+  padding: 15px 0 0 0;
 }
 
 /* Header Styles */
@@ -63,9 +63,10 @@ img {
 
 #message {
   width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 1em; 
+  margin: 0 auto;
+  /*margin-left: auto;
+  margin-right: auto;*/
+  padding-top: .75em; 
   font-size: 1.25em;
 }
 
