@@ -166,7 +166,8 @@ $(document).ready(function () {
         //log error to console
         console.log("Error: JSON not found, profile name does not exist")
         
-        //show message that profile was not found
+        //show message that profile was not found and hide img element
+        $('#gravatar').hide();
         $('#message').html("Sorry, no profiles match " + user + ". Try another name like <a href=\"#daniellehill2\">daniellehill2</a> or <a href=\"#mikethefrog\">mikethefrog</a>");
         $('main').show();
       
