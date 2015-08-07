@@ -167,8 +167,9 @@ $(document).ready(function () {
         console.log("Error: JSON not found, profile name does not exist")
         
         //show message that profile was not found and hide img element
+        //links on suggested profiles not working; should resolve with history api popstate feature add
         $('#gravatar').hide();
-        $('#message').html("Sorry, no profiles match " + user + ". Try another name like <a href=\"#daniellehill2\">daniellehill2</a> or <a href=\"#mikethefrog\">mikethefrog</a>");
+        $('#message').html("Sorry, no profiles match " + user + ". Try <a href=\"#daniellehill2\">daniellehill2</a> or <a href=\"#mikethefrog\">mikethefrog</a>");
         $('main').show();
       
         //clear #chart contents (prevents a previously displayed chart from showing)
@@ -190,7 +191,7 @@ $(document).ready(function () {
         };  
 
         history.pushState(pageData, pageData.title, pageData.url);
-        //url is updating; next get content corresponding to that page to load
+        //url is updating; next get corresponding page to load by populating input and submitting form
     
   });   //end submit
 });    //end ready
