@@ -23,7 +23,7 @@ $(document).ready(function () {
     
     //disable submit button and change text
     var $submitButton = $('#submit');
-    $submitButton.attr("disabled", true).val("searching...");
+    $submitButton.attr("disabled", true).val(Print.btnText);
   
     //AJAX part
     //store username as variable
@@ -153,7 +153,7 @@ $(document).ready(function () {
 
         //Enable input and revert submit button message back to original message
         $inputField.prop("disabled", false);
-        $submitButton.attr("disabled", false).val("Show Points");  
+        $submitButton.attr("disabled", false).val(Print.btnText);  
         $("#input").focus();
 
     } //end execute() function definition
@@ -177,7 +177,7 @@ $(document).ready(function () {
       
         //Enable input and revert submit button message
         $inputField.prop("disabled", false);
-        $submitButton.attr("disabled", false).val("Show Points")
+        $submitButton.attr("disabled", false).val(Print.btnText);
         $("#input").focus();
 
               
