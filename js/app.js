@@ -52,27 +52,18 @@ $(document).ready(function () {
       $('#footnote').html(Print.footer(jsonPath)).show();
 
       //Plot chart of points using d3
-        //***************************************Chart points using d3.js********************************************
-        //set array of topic names for y-axis ordinal scale using sorted data
-        var topics = function (list) {
-                      var newList = [];
-                      for (var i=0; i<list.length; i++) 
-                        newList.push(list[i][0]);
-                      return newList;
-                     }
-        var topicsArr = topics(data);
-
         //set SVG size variables -- need to be based on container size for resizing
-        var w = 800;          // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
+        var w = 800;  // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
         var h = 533;
         var padding = 4;
+        var barChartSize = Charts.size(800, 533, 4);
 
         //set linear scale for x-axis
         var xScale = d3.scale.linear()
-                              .domain([0, d3.max(data, function(d) {
-                                  return d[1];
-                              })])
-                              .range([0,w-padding]);
+            .domain([0, d3.max(data, function(d) {
+              return d[1];
+              })])
+            .range([0,w-barChartSize.p]);
 
         //clear #chart contents (prevents multiple charts from showing at once)
         d3.select('#chart').html("");
@@ -97,7 +88,7 @@ $(document).ready(function () {
               .attr("width", function (d) {
                       return xScale(d[1]);
                     })
-              .attr("height", (h / data.length) - padding )
+              .attr("height", (h / data.length) - barChartSize.p)
               .attr("class", function (d) {return d[2]});
 
         //add labels
@@ -109,7 +100,7 @@ $(document).ready(function () {
                     return d[0] + ", " +d[1];
                   })
             .attr("x", function (d) { //set horizontal position of text
-                    return 3 * padding;
+                    return 3 * barChartSize.p;
                   })
             .attr("y", function (d,i) { //set vertical position of text
                     //center text along bar midline using power function y = h/2 * x^-0.942
