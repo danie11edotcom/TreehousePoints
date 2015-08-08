@@ -1,14 +1,6 @@
-//  Treehouse Profile App
-//  Danielle Hill
-//  http://www.danie11e.com
-//  GitHub: danie11edotcom
-//  2015
-
 //use strict declaration
 'use strict';
 
-//jQuery to get user profile name
-//run when document is ready
 $(document).ready(function () {
   
   //run when submit button is clicked (user submits profile name)
@@ -25,7 +17,6 @@ $(document).ready(function () {
     var $submitButton = $('#submit');
     $submitButton.attr("disabled", true).val(Print.btnText);
   
-    //AJAX part
     //store username as variable
     var user = $inputField.val();
     
@@ -36,18 +27,15 @@ $(document).ready(function () {
     function execute (info) {
       
       //read profile points 
-      var name = info.name;                                          //name of user (not the same same as profile name)
+      var name = info.name; //name of user (not the same same as profile name)
       var points = info.points;
       var totalPoints = points.total;
       var gravatar = info.gravatar_url;
       
       //copy points object from JSON so changes are not made to points and points is accesible later in the same state it was when download
-      //copy technique from http://heyjavascript.com/4-creative-ways-to-clone-objects/
-      var  pointsCopy = (JSON.parse(JSON.stringify(points)));
-      
+      var  pointsCopy = points.slice();
       //create array for raw data
       var dataRaw = [];
-      
       //remove keys where value === 0 as well as the total points
       for (var key in pointsCopy) {
         if (pointsCopy[key] === 0 || key === "total") {
@@ -110,8 +98,8 @@ $(document).ready(function () {
         var svg = d3.select("#chart")
                   .append("svg")
                   .attr("width", w)
-                  .attr("height", h)                                    //added width and height to test effect in browsers with vB and pAR
-                  .attr("viewBox", "0 0 " + w + " " + h + "" )          //set viewBox and perserveAspectRatio for responsiveness 
+                  .attr("height", h)  //added width and height to test effect in browsers with vB and pAR
+                  .attr("viewBox", "0 0 " + w + " " + h + "" )  //set viewBox and perserveAspectRatio for responsiveness 
                   .attr("perserveAspectRatio", "xMinYMin");
 
         //create chart using svg rect bound to data
@@ -134,13 +122,13 @@ $(document).ready(function () {
             .data(data)
             .enter()
             .append("text")
-            .text(function (d) {                                                              //use data value as text label
+            .text(function (d) {  //use data value as text label
                     return d[0] + ", " +d[1];
                   })
-            .attr("x", function (d) {                                                         //set horizontal position of text
+            .attr("x", function (d) { //set horizontal position of text
                     return 3 * padding;
                   })
-            .attr("y", function (d,i) {                                                       //set vertical position of text
+            .attr("y", function (d,i) { //set vertical position of text
                     //center text along bar midline using power function y = h/2 * x^-0.942
                     //power function based on scatter plot trend line from plotting position of 5 sample data.length values
                     return i * (h / data.length) + (h/2 * Math.pow(data.length, -0.942));     
@@ -163,7 +151,6 @@ $(document).ready(function () {
     
     $.getJSON(jsonPath, execute)
      .fail(function() {
-        //log error to console
         console.log(Print.conLogError);
         
         //show message that profile was not found and hide img element
@@ -179,7 +166,6 @@ $(document).ready(function () {
         $inputField.prop("disabled", false);
         $submitButton.attr("disabled", false).val(Print.btnText);
         $("#input").focus();
-
               
       }); //end fail
 
@@ -192,7 +178,6 @@ $(document).ready(function () {
 
         history.pushState(pageData, pageData.title, pageData.url);
         //url is updating; next get corresponding page to load by populating input and submitting form
-    
   });   //end submit
 });    //end ready
 
