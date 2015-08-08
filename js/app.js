@@ -164,7 +164,7 @@ $(document).ready(function () {
     $.getJSON(jsonPath, execute)
      .fail(function() {
         //log error to console
-        console.log("Error: JSON not found, profile name does not exist")
+        console.log(Print.conLogError);
         
         //show message that profile was not found and hide img element
         //links on suggested profiles not working; should resolve with history api popstate feature add
