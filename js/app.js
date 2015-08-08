@@ -108,8 +108,6 @@ $(document).ready(function () {
             .attr("fill", "black")
             .attr("class", "text");
 
-      //************************************************end d3.js code*************************************************************
-
         //Enable input and submit btn and change btn text
         disableFormEl(false); 
         $("#input").focus();
