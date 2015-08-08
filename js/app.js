@@ -53,18 +53,15 @@ $(document).ready(function () {
 
       //Plot chart of points using d3
         //set SVG size variables -- need to be based on container size for resizing
-        var w = 800;  // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
-        var h = 533;
-        var padding = 4;
-        var barChartSize = Charts.size(800, 533, 4);
+        var barChartSize = Charts.size(800, 533, 4);  // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
 
         //set linear scale for x-axis
         var xScale = d3.scale.linear()
-            .domain([0, d3.max(data, function(d) {
-              return d[1];
-              })])
-            .range([0,w-barChartSize.p]);
-
+          .domain([0, d3.max(data, function(d) {
+            return d[1];
+            })])
+          .range([0,barChartSize.w-barChartSize.p]);
+  
         //clear #chart contents (prevents multiple charts from showing at once)
         d3.select('#chart').html("");
       
@@ -73,7 +70,7 @@ $(document).ready(function () {
                   .append("svg")
                   .attr("width", barChartSize.w)
                   .attr("height", barChartSize.h)  //added width and height to test effect in browsers with vB and pAR
-                  .attr("viewBox", "0 0 " + w + " " + h + "" )  //set viewBox and perserveAspectRatio for responsiveness 
+                  .attr("viewBox", "0 0 " + barChartSize.w + " " + barChartSize.h + "" )  //set viewBox and perserveAspectRatio for responsiveness 
                   .attr("perserveAspectRatio", "xMinYMin");
 
         //create chart using svg rect bound to data
@@ -83,12 +80,12 @@ $(document).ready(function () {
               .append("rect")
               .attr("x", 0)
               .attr("y", function (d,i) {
-                      return i * (h / data.length);
+                      return i * (barChartSize.h / data.length);
                     })
               .attr("width", function (d) {
                       return xScale(d[1]);
                     })
-              .attr("height", (h / data.length) - barChartSize.p)
+              .attr("height", (barChartSize.h / data.length) - barChartSize.p)
               .attr("class", function (d) {return d[2]});
 
         //add labels
@@ -105,7 +102,7 @@ $(document).ready(function () {
             .attr("y", function (d,i) { //set vertical position of text
                     //center text along bar midline using power function y = h/2 * x^-0.942
                     //power function based on scatter plot trend line from plotting position of 5 sample data.length values
-                    return i * (h / data.length) + (h/2 * Math.pow(data.length, -0.942));     
+                    return i * (barChartSize.h / data.length) + (barChartSize.h/2 * Math.pow(data.length, -0.942));     
                   })
             .attr("font-family", "sans-serif")
             .attr("fill", "black")

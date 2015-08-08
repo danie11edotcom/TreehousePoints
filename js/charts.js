@@ -11,16 +11,7 @@ var Charts = (function() {
     };
   };
 
-  //Bar Chart: linear scale for x-axis
-  var bar_xScale = function(dataArr, padding) {
-    d3.scale.linear()
-      .domain([0, d3.max(dataArr, function(d) {
-        return d[1];
-        })])
-      .range([0,w-padding]);    
-  };
-
 	return {
-    size: size
+    size: size,
 	};
 })();
