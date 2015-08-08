@@ -37,11 +37,8 @@ var Data = (function() {
     return newArr;
   };
 
-	var test = "Testing Data module";
-
 	return {
 		objCopy: objCopy,
-		test: test,
 		extractPoints: extractPoints,
 		sortPoints: sortPoints
 	};
