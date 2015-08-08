@@ -28,11 +28,17 @@ var Print = (function() {
 		}
 		return text;
 	};
+
+	var conLogError = function (){
+		var e = "Error: JSON not found, profile name does not exist";
+		return e;
+	};
 	
 	return {
 		userInfo: userInfo,
 		footer: footer,
 		jsonFail: jsonFail,
-		btnText: btnText
+		btnText: btnText,
+		conLogError: conLogError
 	};	
 })();
