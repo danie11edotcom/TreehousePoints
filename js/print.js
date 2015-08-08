@@ -15,19 +15,10 @@ var Print = (function() {
 		return c;
 	};
 
-	var btnText = function() {
-		var d = {
+	var btnText = {
 			disabled: "searching...",
 			enabled: "Show Points"
 		};
-		var text = "";
-		if (jQuery("[disabled != false]")  {
-			text = d.enabled;
-		} else {
-			text = d.disabled;
-		}
-		return text;
-	};
 
 	var conLogError = function (){
 		var e = "Error: JSON not found, profile name does not exist";
