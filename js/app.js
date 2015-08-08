@@ -33,13 +33,11 @@ $(document).ready(function () {
     //define function to execute using JSON file
     function execute (info) {
       
-      //read profile points 
+      //read profile points and prep data to pass to d3.js for visualization and to print message
       var name = info.name; //name of user (not the same same as profile name)
       var points = info.points;
       var totalPoints = points.total;
       var gravatar = info.gravatar_url;
-
-      //Get manipulate points to pass to d3.js
       var data = Data.sortPoints(Data.extractPoints(Data.objCopy(points)));
 
       //add message and gravatar to <main> section and make it visible
@@ -53,6 +51,7 @@ $(document).ready(function () {
       //Add jsonPath to footer and make visible
       $('#footnote').html(Print.footer(jsonPath)).show();
 
+      //Plot chart of points using d3
         //***************************************Chart points using d3.js********************************************
         //set array of topic names for y-axis ordinal scale using sorted data
         var topics = function (list) {
