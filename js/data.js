@@ -1,12 +1,11 @@
 var Data = (function() {
 
-	var objCopy = function(obj) {
-		//copy points object from JSON so changes are not made to points and points is accesible later in the same state it was when download
-	  //copy technique from http://heyjavascript.com/4-creative-ways-to-clone-objects/
-	  var duplicateObj = (JSON.parse(JSON.stringify(obj)));
-
-	  return duplicateObj;
-	};
+  var objCopy = function(obj) {
+    //copy points object from JSON so changes are not made to points and points is accesible later in the same state it was when download
+    //copy technique from http://heyjavascript.com/4-creative-ways-to-clone-objects/
+    var duplicateObj = (JSON.parse(JSON.stringify(obj)));
+    return duplicateObj;
+};
 
   var extractPoints = function(pointsObj) {
     var dataRaw = [];
@@ -17,7 +16,6 @@ var Data = (function() {
         dataRaw.push([key, pointsObj[key]]);
       }        
      }
-
      return dataRaw;
   };
 
@@ -33,11 +31,10 @@ var Data = (function() {
         //using index [i][0] replace spaces with underscore and make lowercase and assign to index [i][2]
         newArr[i][2] = newArr[i][0].replace(/\s/g,'_').toLowerCase();
     }
-
     return newArr;
   };
 
-	return {
+  return {
 		objCopy: objCopy,
 		extractPoints: extractPoints,
 		sortPoints: sortPoints
