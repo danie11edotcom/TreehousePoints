@@ -14,10 +14,25 @@ var Print = (function() {
 		var c = "Sorry, no profiles match " + user + ". Try <a href=\"#" + sample1 + "\"> " +sample1 + "</a> or <a href=\"#" + sample2 + "\">" +sample2 +"</a>";
 		return c;
 	};
+
+	var btnText = function() {
+		var d = {
+			disabled: "searching...",
+			enabled: "Show Points"
+		};
+		var text = "";
+		if (jQuery("[disabled != false]")  {
+			text = d.enabled;
+		} else {
+			text = d.disabled;
+		}
+		return text;
+	};
 	
 	return {
 		userInfo: userInfo,
 		footer: footer,
-		jsonFail: jsonFail
+		jsonFail: jsonFail,
+		btnText: btnText
 	};	
 })();
