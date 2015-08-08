@@ -39,60 +39,19 @@ $(document).ready(function () {
       var totalPoints = points.total;
       var gravatar = info.gravatar_url;
 
-      //Copy object
-      var objCopy = function(obj) {
-        //copy points object from JSON so changes are not made to points and points is accesible later in the same state it was when download
-        //copy technique from http://heyjavascript.com/4-creative-ways-to-clone-objects/
-        var duplicateObj = (JSON.parse(JSON.stringify(obj)));
+      //Get manipulate points to pass to d3.js
+      var data = Data.sortPoints(Data.extractPoints(Data.objCopy(points)));
 
-        return duplicateObj;
-      };
-      
-      //Prepare points data for d3 visualization
-      var extractPoints = function(pointsObj) {
-        var dataRaw = [];
-
-        //remove keys where value === 0 as well as the total points
-        for (var key in pointsObj) {
-          if (pointsObj[key] === 0 || key === "total") {
-            delete pointsObj[key];
-          } else {
-            dataRaw.push([key, pointsObj[key]]);
-          }        
-         }
-         return dataRaw;
-      };
-
-      var sortPoints = function(dataArr) {
-        //sort dataRaw ascending using Bostock's descending function and store as data to pass to d3.js
-       var newArr = [];
-       newArr = dataArr.sort(function descending(a, b) {
-            return b[1] < a[1] ? -1 : b[1] > a[1] ? 1 : b[1] >= a[1] ? 0 : NaN;
-        }); 
-
-        //create 3rd item in each array with css class name to pass to d3
-        for (var i=0; i<newArr.length; i++) {
-            //using index [i][0] replace spaces with underscore and make lowercase and assign to index [i][2]
-            newArr[i][2] = newArr[i][0].replace(/\s/g,'_').toLowerCase();
-        }
-
-        return newArr;
-      };
-
-      var data = sortPoints(extractPoints(objCopy(points)));
-      console.log(sortPoints(extractPoints(objCopy(points))));
-
-
-        //add message and gravatar to <main> section and make it visible
-        $('#gravatar').attr({
-            src: gravatar,
-            alt: "user profile picture"
-        });
-        $('#message').html(Print.userInfo(name, totalPoints, data.length));
-        $('main').show();
-      
-        //Add jsonPath to footer and make visible
-        $('#footnote').html(Print.footer(jsonPath)).show();
+      //add message and gravatar to <main> section and make it visible
+      $('#gravatar').attr({
+          src: gravatar,
+          alt: "user profile picture"
+      });
+      $('#message').html(Print.userInfo(name, totalPoints, data.length));
+      $('main').show();
+    
+      //Add jsonPath to footer and make visible
+      $('#footnote').html(Print.footer(jsonPath)).show();
 
         //***************************************Chart points using d3.js********************************************
         //set array of topic names for y-axis ordinal scale using sorted data
