@@ -80,7 +80,7 @@ $(document).ready(function () {
       };
 
       var data = sortPoints(extractPoints(objCopy(points)));
-      console.log(data);
+      console.log(sortPoints(extractPoints(objCopy(points))));
 
 
         //add message and gravatar to <main> section and make it visible
