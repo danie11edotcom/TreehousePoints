@@ -9,20 +9,27 @@ $(document).ready(function () {
     //prevent form from submitting
     event.preventDefault();
     
-    //disable input
+    //input, submit btn and json path variables
     var $inputField = $('#input');
-    $inputField.prop("disabled", true);
-    
-    //disable submit button and change text
     var $submitButton = $('#submit');
-    $submitButton.attr("disabled", true).val(Print.btnText.disabled);
-  
-    //store username as variable
     var user = $inputField.val();
-    
-    //store profile JSON path as variable using user from above
     var jsonPath = "http://teamtreehouse.com/" + user + ".json";
-    
+
+    //Function to disable/enable input and submit btn and change btn text
+    var disableFormEl = function(bool) {
+      $inputField.prop("disabled", bool);  
+      $submitButton.attr("disabled", bool);
+
+      if (bool === true) {
+        $submitButton.val(Print.btnText.disabled);
+      } else {
+        $submitButton.val(Print.btnText.enabled);
+      }
+    };
+
+    //disable input and submit btn and change btn text
+    disableFormEl(true);
+
     //define function to execute using JSON file
     function execute (info) {
       
@@ -140,9 +147,8 @@ $(document).ready(function () {
 
       //************************************************end d3.js code*************************************************************
 
-        //Enable input and revert submit button message back to original message
-        $inputField.prop("disabled", false);
-        $submitButton.attr("disabled", false).val(Print.btnText.enabled);  
+        //Enable input and submit btn and change btn text
+        disableFormEl(false); 
         $("#input").focus();
 
     } //end execute() function definition
@@ -163,9 +169,8 @@ $(document).ready(function () {
         //clear #chart contents (prevents a previously displayed chart from showing)
         d3.select('#chart').html("");
       
-        //Enable input and revert submit button message
-        $inputField.prop("disabled", false);
-        $submitButton.attr("disabled", false).val(Print.btnText.disabled);
+        //Enable input and submit btn and change btn text
+        disableFormEl(false);
         $("#input").focus();
               
       }); //end fail
