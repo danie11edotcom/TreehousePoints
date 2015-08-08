@@ -15,7 +15,7 @@ $(document).ready(function () {
     
     //disable submit button and change text
     var $submitButton = $('#submit');
-    $submitButton.attr("disabled", true).val(Print.btnText);
+    $submitButton.attr("disabled", true).val(Print.btnText.disabled);
   
     //store username as variable
     var user = $inputField.val();
@@ -33,7 +33,8 @@ $(document).ready(function () {
       var gravatar = info.gravatar_url;
       
       //copy points object from JSON so changes are not made to points and points is accesible later in the same state it was when download
-      var  pointsCopy = points.slice();
+      //copy technique from http://heyjavascript.com/4-creative-ways-to-clone-objects/
+      var  pointsCopy = (JSON.parse(JSON.stringify(points)));
       //create array for raw data
       var dataRaw = [];
       //remove keys where value === 0 as well as the total points
@@ -141,7 +142,7 @@ $(document).ready(function () {
 
         //Enable input and revert submit button message back to original message
         $inputField.prop("disabled", false);
-        $submitButton.attr("disabled", false).val(Print.btnText);  
+        $submitButton.attr("disabled", false).val(Print.btnText.enabled);  
         $("#input").focus();
 
     } //end execute() function definition
@@ -164,7 +165,7 @@ $(document).ready(function () {
       
         //Enable input and revert submit button message
         $inputField.prop("disabled", false);
-        $submitButton.attr("disabled", false).val(Print.btnText);
+        $submitButton.attr("disabled", false).val(Print.btnText.disabled);
         $("#input").focus();
               
       }); //end fail
