@@ -74,7 +74,7 @@ $(document).ready(function () {
             src: gravatar,
             alt: "user profile picture"
         });
-        $('#message').html(name + " has earned " + totalPoints + " total points in " + data.length + " different skills!");
+        $('#message').html(Print.userInfo(name, totalPoints, data.length));
         $('main').show();
       
         //Add jsonPath to footer and make visible
