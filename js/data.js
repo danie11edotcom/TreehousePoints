@@ -35,8 +35,8 @@ var Data = (function() {
   };
 
   return {
-		objCopy: objCopy,
-		extractPoints: extractPoints,
-		sortPoints: sortPoints
+    objCopy: objCopy,
+    extractPoints: extractPoints,
+    sortPoints: sortPoints
 	};
 })();
