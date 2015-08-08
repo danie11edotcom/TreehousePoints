@@ -78,7 +78,7 @@ $(document).ready(function () {
         $('main').show();
       
         //Add jsonPath to footer and make visible
-        $('#footnote').html("Data source: <a href=" + jsonPath + " target=\"_blank\">Treehouse profile JSON</a>").show();
+        $('#footnote').html(Print.footer(jsonPath)).show();
 
         //***************************************Chart points using d3.js********************************************
       
@@ -169,7 +169,7 @@ $(document).ready(function () {
         //show message that profile was not found and hide img element
         //links on suggested profiles not working; should resolve with history api popstate feature add
         $('#gravatar').hide();
-        $('#message').html("Sorry, no profiles match " + user + ". Try <a href=\"#daniellehill2\">daniellehill2</a> or <a href=\"#mikethefrog\">mikethefrog</a>");
+        $('#message').html(Print.jsonFail(user, "daniellehill2", "mikethefrog"));
         $('main').show();
       
         //clear #chart contents (prevents a previously displayed chart from showing)
