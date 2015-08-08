@@ -38,32 +38,50 @@ $(document).ready(function () {
       var points = info.points;
       var totalPoints = points.total;
       var gravatar = info.gravatar_url;
-      
-      //copy points object from JSON so changes are not made to points and points is accesible later in the same state it was when download
-      //copy technique from http://heyjavascript.com/4-creative-ways-to-clone-objects/
-      var  pointsCopy = (JSON.parse(JSON.stringify(points)));
-      //create array for raw data
-      var dataRaw = [];
-      //remove keys where value === 0 as well as the total points
-      for (var key in pointsCopy) {
-        if (pointsCopy[key] === 0 || key === "total") {
-          delete pointsCopy[key];
-        } else {
-          dataRaw.push([key, pointsCopy[key]]);
-        }        
-       }
 
+      //Copy object
+      var objCopy = function(obj) {
+        //copy points object from JSON so changes are not made to points and points is accesible later in the same state it was when download
+        //copy technique from http://heyjavascript.com/4-creative-ways-to-clone-objects/
+        var duplicateObj = (JSON.parse(JSON.stringify(obj)));
+
+        return duplicateObj;
+      };
+      
+      //Prepare points data for d3 visualization
+      var extractPoints = function(pointsObj) {
+        var dataRaw = [];
+
+        //remove keys where value === 0 as well as the total points
+        for (var key in pointsObj) {
+          if (pointsObj[key] === 0 || key === "total") {
+            delete pointsObj[key];
+          } else {
+            dataRaw.push([key, pointsObj[key]]);
+          }        
+         }
+         return dataRaw;
+      };
+
+      var sortPoints = function(dataArr) {
         //sort dataRaw ascending using Bostock's descending function and store as data to pass to d3.js
-       var data = [];
-       data = dataRaw.sort(function descending(a, b) {
+       var newArr = [];
+       newArr = dataArr.sort(function descending(a, b) {
             return b[1] < a[1] ? -1 : b[1] > a[1] ? 1 : b[1] >= a[1] ? 0 : NaN;
-        });
+        }); 
 
         //create 3rd item in each array with css class name to pass to d3
-        for (var i=0; i<data.length; i++) {
+        for (var i=0; i<newArr.length; i++) {
             //using index [i][0] replace spaces with underscore and make lowercase and assign to index [i][2]
-            data[i][2] = data[i][0].replace(/\s/g,'_').toLowerCase();
+            newArr[i][2] = newArr[i][0].replace(/\s/g,'_').toLowerCase();
         }
+
+        return newArr;
+      };
+
+      var data = sortPoints(extractPoints(objCopy(points)));
+      console.log(data);
+
 
         //add message and gravatar to <main> section and make it visible
         $('#gravatar').attr({
@@ -77,7 +95,6 @@ $(document).ready(function () {
         $('#footnote').html(Print.footer(jsonPath)).show();
 
         //***************************************Chart points using d3.js********************************************
-      
         //set array of topic names for y-axis ordinal scale using sorted data
         var topics = function (list) {
                       var newList = [];
