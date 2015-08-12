@@ -67,26 +67,13 @@ $(document).ready(function () {
 
         //create SVG
         var svg = d3.select("#chart")
-                  .append("svg")
-                  .attr("width", barChartSize.w)
-                  .attr("height", barChartSize.h)  //added width and height to test effect in browsers with vB and pAR
-                  .attr("viewBox", "0 0 " + barChartSize.w + " " + barChartSize.h + "" )  //set viewBox and perserveAspectRatio for responsiveness 
-                  .attr("perserveAspectRatio", "xMinYMin");
+          .append("svg")
+          .attr("width", barChartSize.w)
+          .attr("height", barChartSize.h)  //added width and height to test effect in browsers with vB and pAR
+          .attr("viewBox", "0 0 " + barChartSize.w + " " + barChartSize.h + "" )  //set viewBox and perserveAspectRatio for responsiveness 
+          .attr("perserveAspectRatio", "xMinYMin");
 
-        //create chart using svg rect bound to data
-          svg.selectAll("rect")
-              .data(data)
-              .enter()
-              .append("rect")
-              .attr("x", 0)
-              .attr("y", function (d,i) {
-                      return i * (barChartSize.h / data.length);
-                    })
-              .attr("width", function (d) {
-                      return xScale(d[1]);
-                    })
-              .attr("height", (barChartSize.h / data.length) - barChartSize.p)
-              .attr("class", function (d) {return d[2]});
+        Charts.createBarChartHorz(svg, data, barChartSize.h, xScale, barChartSize.p);
 
         //add labels
          svg.selectAll("text")
