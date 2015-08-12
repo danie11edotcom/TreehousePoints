@@ -75,7 +75,7 @@ $(document).ready(function () {
 
         //create and label chart
         Charts.createBarChartHorz(svg, data, barChartSize.h, xScale, barChartSize.p);
-        Charts.labelBarChartHorz(svg, data, barChartSize.p, barChartSize.h, "sans-serif", "black");
+        Charts.labelBarChartHorz(svg, data, barChartSize.p, barChartSize.h, "sans-serif", "black", "text");
 
         //Enable input and submit btn and change btn text
         disableFormEl(false); 

@@ -31,7 +31,7 @@ var Charts = (function() {
     .attr("class", function (d) {return d[2]});
   };
 
-  var labelBarChartHorz = function(element, data, p, h, font, fill) {
+  var labelBarChartHorz = function(element, data, p, h, font, fill, text) {
     element.selectAll("text")
     .data(data)
     .enter()
@@ -49,7 +49,7 @@ var Charts = (function() {
     })
     .attr("font-family", font)
     .attr("fill", fill)
-    .attr("class", "text");
+    .attr("class", text);
   };
 
   return {
