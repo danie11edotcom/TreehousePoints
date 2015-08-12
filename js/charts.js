@@ -11,6 +11,10 @@ var Charts = (function() {
     };
   };
 
+  var clearContent = function(selector) {
+    d3.select(selector).html("");
+  };
+
  /* var createSvg = function(w, h) {
   	d3.select(this)
      .append("svg")
@@ -22,6 +26,7 @@ var Charts = (function() {
 
 	return {
     size: size,
+    clearContent: clearContent
     //createSvg: createSvg
 	};
 })();
