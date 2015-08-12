@@ -34,7 +34,7 @@ $(document).ready(function () {
     function execute (info) {
       
       //read profile points and prep data to pass to d3.js for visualization and to print message
-      var name = info.name; //name of user (not the same same as profile name)
+      var name = info.name; //name of user -- not the same same as profile name
       var points = info.points;
       var totalPoints = points.total;
       var gravatar = info.gravatar_url;
