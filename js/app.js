@@ -47,7 +47,7 @@ $(document).ready(function () {
       });
       $('#message').html(Print.userInfo(name, totalPoints, data.length));
       $('main').show();
-    
+
       //Add jsonPath to footer and make visible
       $('#footnote').html(Print.footer(jsonPath)).show();
 
@@ -113,7 +113,6 @@ $(document).ready(function () {
         };  
 
         history.pushState(pageData, pageData.title, pageData.url);
-        //url is updating; next get corresponding page to load by populating input and submitting form
   });   //end submit
 });    //end ready
 
