@@ -73,27 +73,9 @@ $(document).ready(function () {
           .attr("viewBox", "0 0 " + barChartSize.w + " " + barChartSize.h + "" )  //set viewBox and perserveAspectRatio for responsiveness 
           .attr("perserveAspectRatio", "xMinYMin");
 
+        //create and label chart
         Charts.createBarChartHorz(svg, data, barChartSize.h, xScale, barChartSize.p);
-
-        //add labels
-         svg.selectAll("text")
-            .data(data)
-            .enter()
-            .append("text")
-            .text(function (d) {  //use data value as text label
-                    return d[0] + ", " +d[1];
-                  })
-            .attr("x", function (d) { //set horizontal position of text
-                    return 3 * barChartSize.p;
-                  })
-            .attr("y", function (d,i) { //set vertical position of text
-                    //center text along bar midline using power function y = h/2 * x^-0.942
-                    //power function based on scatter plot trend line from plotting position of 5 sample data.length values
-                    return i * (barChartSize.h / data.length) + (barChartSize.h/2 * Math.pow(data.length, -0.942));     
-                  })
-            .attr("font-family", "sans-serif")
-            .attr("fill", "black")
-            .attr("class", "text");
+        Charts.labelBarChartHorz(svg, data, barChartSize.p, barChartSize.h, "sans-serif", "black");
 
         //Enable input and submit btn and change btn text
         disableFormEl(false); 
