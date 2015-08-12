@@ -15,18 +15,25 @@ var Charts = (function() {
     d3.select(selector).html("");
   };
 
- /* var createSvg = function(w, h) {
-  	d3.select(this)
-     .append("svg")
-     .attr("width", w)
-     .attr("height", h)  //added width and height to test effect in browsers with vB and pAR
-     .attr("viewBox", "0 0 " + w + " " + h + "" )  //set viewBox and perserveAspectRatio for responsiveness 
-     .attr("perserveAspectRatio", "xMinYMin");
-  };*/
+  var createBarChartHorz = function(element, data, h, scale, p) {
+    element.selectAll("rect")
+              .data(data)
+              .enter()
+              .append("rect")
+              .attr("x", 0)
+              .attr("y", function (d,i) {
+                      return i * (h / data.length);
+                    })
+              .attr("width", function (d) {
+                      return scale(d[1]);
+                    })
+              .attr("height", (h / data.length) - p)
+              .attr("class", function (d) {return d[2]});
+  };
 
 	return {
     size: size,
-    clearContent: clearContent
-    //createSvg: createSvg
+    clearContent: clearContent,
+    createBarChartHorz: createBarChartHorz
 	};
 })();
