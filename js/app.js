@@ -63,8 +63,8 @@ $(document).ready(function () {
           .range([0,barChartSize.w-barChartSize.p]);
   
         //clear #chart contents (prevents multiple charts from showing at once)
-        d3.select('#chart').html("");
-      
+        Charts.clearContent('#chart');
+
         //create SVG
         var svg = d3.select("#chart")
                   .append("svg")
@@ -128,7 +128,7 @@ $(document).ready(function () {
         $('main').show();
       
         //clear #chart contents (prevents a previously displayed chart from showing)
-        d3.select('#chart').html("");
+        Charts.clearContent('#chart');
       
         //Enable input and submit btn and change btn text
         disableFormEl(false);
