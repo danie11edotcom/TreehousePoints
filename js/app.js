@@ -39,7 +39,7 @@ $(document).ready(function () {
       var totalPoints = points.total;
       var gravatar = info.gravatar_url;
       var badges = info.badges;
-      var tsData = Data.getTimeStamps(badges);
+      var tsData = Data.getDate((Data.getTimeStamps(badges)));
       var data = Data.sortPoints(Data.extractPoints(Data.objCopy(points)));
 
       //add message and gravatar to <main> section and make it visible
