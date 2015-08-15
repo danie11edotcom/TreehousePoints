@@ -15,6 +15,10 @@ var Charts = (function() {
     d3.select(selector).html("");
   };
 
+  var createTsChart = function(element) {
+    
+  };
+
   var createBarChartHorz = function(element, data, h, scale, p) {
     element.selectAll("rect")
     .data(data)
@@ -55,6 +59,7 @@ var Charts = (function() {
   return {
     size: size,
     clearContent: clearContent,
+    createTsChart: createTsChart,
     createBarChartHorz: createBarChartHorz,
     labelBarChartHorz: labelBarChartHorz
 	};
