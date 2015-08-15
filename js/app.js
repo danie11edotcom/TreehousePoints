@@ -38,6 +38,8 @@ $(document).ready(function () {
       var points = info.points;
       var totalPoints = points.total;
       var gravatar = info.gravatar_url;
+      var badges = info.badges;
+      var tsData = Data.getTimeStamps(badges);
       var data = Data.sortPoints(Data.extractPoints(Data.objCopy(points)));
 
       //add message and gravatar to <main> section and make it visible
@@ -84,7 +86,7 @@ $(document).ready(function () {
 
         //create and label charts
         //time series
-        
+
 
         //bar chart
         Charts.createBarChartHorz(svg, data, barChartSize.h, xScale, barChartSize.p);
