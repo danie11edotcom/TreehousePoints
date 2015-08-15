@@ -39,7 +39,7 @@ $(document).ready(function () {
       var totalPoints = points.total;
       var gravatar = info.gravatar_url;
       var badges = info.badges;
-      var tsData = Data.getDate((Data.getTimeStamps(badges)));
+      var tsData = Data.objToArr(Data.badgesPerDay(Data.dateMs(Data.getDate((Data.getTimeStamps(badges)))))); //pass to d3.js for time series
       var data = Data.sortPoints(Data.extractPoints(Data.objCopy(points)));
 
       //add message and gravatar to <main> section and make it visible
