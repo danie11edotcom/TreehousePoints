@@ -5,9 +5,16 @@ var Data = (function() {
     for (var val in arr) {  //for ES6 use for...of (IE not supported as of time of writing)
       timeStamps.push(arr[val].earned_date);
     }
-    return timeStamps;
+    return {timeStamps: timeStamps};
   };
-  
+
+  var getDate = function(arr) {
+    var dates = [];
+    for (var times in arr) {
+      dates.push(arr[times].slice(0,10));
+    }
+    return {dates: dates};
+  };
 
   var objCopy = function(obj) {
     //copy points object from JSON so changes are not made to points and points is accesible later in the same state it was when download
@@ -45,6 +52,7 @@ var Data = (function() {
 
   return {
     getTimeStamps: getTimeStamps,
+    getDate: getDate,
     objCopy: objCopy,
     extractPoints: extractPoints,
     sortPoints: sortPoints
