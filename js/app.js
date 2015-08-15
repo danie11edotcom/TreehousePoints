@@ -58,13 +58,9 @@ $(document).ready(function () {
         var tsChartSize = Charts.size(800, 275, 4);
         var barChartSize = Charts.size(800, 533, 4);  // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
 
-        //set linear scales for time series
+        //set linear scales and axes for time series
         //x-axis
-        var tsX = d3.scale.linear()
-          .domain([0, d3.max(
-            data, function(d) {
-              return d[0];
-            })])
+        var tsX = d3.time.scale()
           .range([0, tsChartSize.w-tsChartSize.p]);
 
         //y-axis
@@ -73,6 +69,15 @@ $(document).ready(function () {
             return d[1];
           })])
           .range([tsChartSize.h, 0]);
+
+        var xAxis = d3.svg.axis()
+          .scale(tsX)
+          .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+          .scale(tsY)
+          .orient("left");
+
 
         //set linear scale for x-axis for bar chart
         var xScale = d3.scale.linear()
