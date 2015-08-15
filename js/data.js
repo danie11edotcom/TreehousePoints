@@ -27,6 +27,7 @@ var Data = (function() {
   var badgesPerDay = function(arr) {
     //StackOverflow answer by radicand: http://stackoverflow.com/questions/5667888/counting-the-occurrences-of-javascript-array-elements
     var obj = arr.reduce(function(countMap, word) {countMap[word] = ++countMap[word] || 1; return countMap}, {});
+    console.log(obj);
     return obj;
   };
 
