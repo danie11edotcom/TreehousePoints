@@ -79,7 +79,6 @@ $(document).ready(function () {
       //create and label charts
       //time series
       var tsDataMG = MG.convert.date(tsData, 'day')
-      var today = new Date();
       MG.data_graphic({
         title: 'Achievement Timeline',
         data: tsData,
@@ -90,7 +89,6 @@ $(document).ready(function () {
         y_accessor: 'achievements',
         missing_is_zero: true,
         xax_start_at_min: true
-        //max_x: today
       });
 
       //bar chart
