@@ -87,6 +87,7 @@ $(document).ready(function () {
         target: '#timeseries',
         x_accessor: 'day',
         y_accessor: 'achievements',
+        missing_is_zero: true
       });
 
       //bar chart
