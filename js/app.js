@@ -79,15 +79,19 @@ $(document).ready(function () {
       //create and label charts
       //time series
       var tsDataMG = MG.convert.date(tsData, 'day')
+      var today = new Date();
       MG.data_graphic({
-        //title: 'Achievement Timeline',
+        title: 'Achievement Timeline',
         data: tsData,
         width: 800,
         height: 275,
         target: '#timeseries',
         x_accessor: 'day',
         y_accessor: 'achievements',
-        missing_is_zero: true
+        missing_is_zero: true,
+        x_extended_ticks: true,
+        xax_start_at_min: true
+        //max_x: today
       });
 
       //bar chart
@@ -113,7 +117,8 @@ $(document).ready(function () {
         $('#message').html(Print.jsonFail(user, "daniellehill2", "mikethefrog"));
         $('main').show();
       
-        //clear #chart contents (prevents a previously displayed chart from showing)
+        //clear charts (prevents previously displayed charts from showing)
+        Charts.clearContent('#timeseries');
         Charts.clearContent('#chart');
       
         //Enable input and submit btn and change btn text
