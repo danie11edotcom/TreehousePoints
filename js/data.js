@@ -30,6 +30,15 @@ var Data = (function() {
     return obj;
   };
 
+  var arrOfObjs = function(obj) {
+    var newArray = [];
+    for (var key in obj) {
+      newArray.push({"day": key, "achievements": obj[key]});
+    }
+    console.log(newArray);
+    return newArray;
+  };
+
   var objCopy = function(obj) {
     //copy points object from JSON so changes are not made to points and points is accesible later in the same state it was when download
     //copy technique from http://heyjavascript.com/4-creative-ways-to-clone-objects/
@@ -77,6 +86,7 @@ var Data = (function() {
     getDate: getDate,
     dateMs: dateMs,
     badgesPerDay: badgesPerDay,
+    arrOfObjs: arrOfObjs,
     objToArr: objToArr,
     objCopy: objCopy,
     extractPoints: extractPoints,
