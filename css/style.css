@@ -79,6 +79,19 @@ svg {
   display: none;
 }
 
+/* Achievement Timeline Styles*/
+.mg-line1-color {
+    stroke: #5fcf80;  /*Treehouse green*/
+}
+
+.mg-hover-line1-color {
+    fill: #5fcf80;
+}
+
+.mg-area1-color {
+    fill: #9fe2b2;
+}
+
 /* Set chart topic colors to match Treehouse */
 
 .html { fill: #39ADD1; }
