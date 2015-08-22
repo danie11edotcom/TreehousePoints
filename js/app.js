@@ -89,7 +89,6 @@ $(document).ready(function () {
         x_accessor: 'day',
         y_accessor: 'achievements',
         missing_is_zero: true,
-        x_extended_ticks: true,
         xax_start_at_min: true
         //max_x: today
       });
