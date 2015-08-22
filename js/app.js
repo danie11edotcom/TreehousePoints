@@ -39,7 +39,7 @@ $(document).ready(function () {
       var totalPoints = points.total;
       var gravatar = info.gravatar_url;
       var badges = info.badges;
-      var tsData = Data.objToArr(Data.badgesPerDay(Data.dateMs(Data.getDate((Data.getTimeStamps(badges)))))); //pass to d3.js for time series
+      var tsData = Data.arrOfObjs(Data.badgesPerDay(Data.getDate(Data.getTimeStamps(badges)))); //pass to d3.js for time series
       var data = Data.sortPoints(Data.extractPoints(Data.objCopy(points)));
 
       //add message and gravatar to <main> section and make it visible
@@ -70,13 +70,13 @@ $(document).ready(function () {
         })])
         .range([tsChartSize.h, 0]);*/
 
-      var xAxis = d3.svg.axis()
+      /*var xAxis = d3.svg.axis()
         .scale(tsX)
         .orient("bottom");
 
       var yAxis = d3.svg.axis()
         .scale(tsY)
-        .orient("left");
+        .orient("left");*/
 
       //set linear scale for x-axis for bar chart
       var xScale = d3.scale.linear()
@@ -90,10 +90,10 @@ $(document).ready(function () {
       Charts.clearContent('#chart');
 
       //create SVG elements
-      var tsSvg = d3.select("#timeseries")
+/*      var tsSvg = d3.select("#timeseries")
         .append("svg")
         .attr("width", tsChartSize.w)
-        .attr("height", tsChartSize.h);
+        .attr("height", tsChartSize.h);*/
 
       var svg = d3.select("#chart")
         .append("svg")
@@ -104,8 +104,15 @@ $(document).ready(function () {
 
       //create and label charts
       //time series
+      var tsDataMG = MG.convert.date(tsData, 'day')
       MG.data_graphic({
-
+        //title: 'Achievement Timeline',
+        data: tsData,
+        width: 800,
+        height: 275,
+        target: '#timeseries',
+        x_accessor: 'day',
+        y_accessor: 'achievements',
       });
 
 
