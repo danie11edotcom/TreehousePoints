@@ -54,66 +54,68 @@ $(document).ready(function () {
       $('#footnote').html(Print.footer(jsonPath)).show();
 
       //Plot chart of points using d3
-        //set SVG size variables -- need to be based on container size for resizing
-        var tsChartSize = Charts.size(800, 275, 4);
-        var barChartSize = Charts.size(800, 533, 4);  // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
+      //set SVG size variables -- need to be based on container size for resizing
+      //var tsChartSize = Charts.size(800, 275, 4);
+      var barChartSize = Charts.size(800, 533, 4);  // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
 
-        //set linear scales and axes for time series
-        //x-axis
-        var tsX = d3.time.scale()
-          .range([0, tsChartSize.w-tsChartSize.p]);
+      //set linear scales and axes for time series
+      //x-axis
+/*        var tsX = d3.time.scale()
+        .range([0, tsChartSize.w-tsChartSize.p]);
 
-        //y-axis
-        var tsY = d3.scale.linear()
-          .domain([0, d3.max(data, function(d) {
-            return d[1];
+      //y-axis
+      var tsY = d3.scale.linear()
+        .domain([0, d3.max(data, function(d) {
+          return d[1];
+        })])
+        .range([tsChartSize.h, 0]);*/
+
+      var xAxis = d3.svg.axis()
+        .scale(tsX)
+        .orient("bottom");
+
+      var yAxis = d3.svg.axis()
+        .scale(tsY)
+        .orient("left");
+
+      //set linear scale for x-axis for bar chart
+      var xScale = d3.scale.linear()
+        .domain([0, d3.max(data, function(d) {
+          return d[1];
           })])
-          .range([tsChartSize.h, 0]);
+        .range([0,barChartSize.w-barChartSize.p]);
 
-        var xAxis = d3.svg.axis()
-          .scale(tsX)
-          .orient("bottom");
+      //clear contents of elements containing charts (prevents multiple charts from showing at once)
+      Charts.clearContent('#timeseries');
+      Charts.clearContent('#chart');
 
-        var yAxis = d3.svg.axis()
-          .scale(tsY)
-          .orient("left");
+      //create SVG elements
+      var tsSvg = d3.select("#timeseries")
+        .append("svg")
+        .attr("width", tsChartSize.w)
+        .attr("height", tsChartSize.h);
 
+      var svg = d3.select("#chart")
+        .append("svg")
+        .attr("width", barChartSize.w)
+        .attr("height", barChartSize.h)  //added width and height to test effect in browsers with vB and pAR
+        .attr("viewBox", "0 0 " + barChartSize.w + " " + barChartSize.h + "" )  //set viewBox and perserveAspectRatio for responsiveness 
+        .attr("perserveAspectRatio", "xMinYMin");
 
-        //set linear scale for x-axis for bar chart
-        var xScale = d3.scale.linear()
-          .domain([0, d3.max(data, function(d) {
-            return d[1];
-            })])
-          .range([0,barChartSize.w-barChartSize.p]);
-  
-        //clear contents of elements containing charts (prevents multiple charts from showing at once)
-        Charts.clearContent('#timeseries');
-        Charts.clearContent('#chart');
+      //create and label charts
+      //time series
+      MG.data_graphic({
 
-        //create SVG elements
-        var tsSvg = d3.select("#timeseries")
-          .append("svg")
-          .attr("width", tsChartSize.w)
-          .attr("height", tsChartSize.h);
-
-        var svg = d3.select("#chart")
-          .append("svg")
-          .attr("width", barChartSize.w)
-          .attr("height", barChartSize.h)  //added width and height to test effect in browsers with vB and pAR
-          .attr("viewBox", "0 0 " + barChartSize.w + " " + barChartSize.h + "" )  //set viewBox and perserveAspectRatio for responsiveness 
-          .attr("perserveAspectRatio", "xMinYMin");
-
-        //create and label charts
-        //time series
+      });
 
 
-        //bar chart
-        Charts.createBarChartHorz(svg, data, barChartSize.h, xScale, barChartSize.p);
-        Charts.labelBarChartHorz(svg, data, barChartSize.p, barChartSize.h, "sans-serif", "black", "text");
+      //bar chart
+      Charts.createBarChartHorz(svg, data, barChartSize.h, xScale, barChartSize.p);
+      Charts.labelBarChartHorz(svg, data, barChartSize.p, barChartSize.h, "sans-serif", "black", "text");
 
-        //Enable input and submit btn and change btn text
-        disableFormEl(false); 
-        $("#input").focus();
+      //Enable input and submit btn and change btn text
+      disableFormEl(false); 
+      $("#input").focus();
 
     } //end execute() function definition
   
