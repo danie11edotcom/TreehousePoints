@@ -58,26 +58,6 @@ $(document).ready(function () {
       //var tsChartSize = Charts.size(800, 275, 4);
       var barChartSize = Charts.size(800, 533, 4);  // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
 
-      //set linear scales and axes for time series
-      //x-axis
-/*        var tsX = d3.time.scale()
-        .range([0, tsChartSize.w-tsChartSize.p]);
-
-      //y-axis
-      var tsY = d3.scale.linear()
-        .domain([0, d3.max(data, function(d) {
-          return d[1];
-        })])
-        .range([tsChartSize.h, 0]);*/
-
-      /*var xAxis = d3.svg.axis()
-        .scale(tsX)
-        .orient("bottom");
-
-      var yAxis = d3.svg.axis()
-        .scale(tsY)
-        .orient("left");*/
-
       //set linear scale for x-axis for bar chart
       var xScale = d3.scale.linear()
         .domain([0, d3.max(data, function(d) {
@@ -88,12 +68,6 @@ $(document).ready(function () {
       //clear contents of elements containing charts (prevents multiple charts from showing at once)
       Charts.clearContent('#timeseries');
       Charts.clearContent('#chart');
-
-      //create SVG elements
-/*      var tsSvg = d3.select("#timeseries")
-        .append("svg")
-        .attr("width", tsChartSize.w)
-        .attr("height", tsChartSize.h);*/
 
       var svg = d3.select("#chart")
         .append("svg")
@@ -114,7 +88,6 @@ $(document).ready(function () {
         x_accessor: 'day',
         y_accessor: 'achievements',
       });
-
 
       //bar chart
       Charts.createBarChartHorz(svg, data, barChartSize.h, xScale, barChartSize.p);
