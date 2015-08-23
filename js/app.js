@@ -39,6 +39,7 @@ $(document).ready(function () {
       var totalPoints = points.total;
       var gravatar = info.gravatar_url;
       var badges = info.badges;
+      var date1 = badges[0].earned_date.slice(0,4);
       var tsData = Data.arrOfObjs(Data.badgesPerDay(Data.getDate(Data.getTimeStamps(badges)))); //pass to d3.js for time series
       var data = Data.sortPoints(Data.extractPoints(Data.objCopy(points)));
 
@@ -46,7 +47,9 @@ $(document).ready(function () {
       $('#gravatar').attr({
           src: gravatar,
           alt: "user profile picture"
-      });
+      }).show();
+      $('#name').html(name);
+      $('#date1').html('Learning since ' + date1);
       $('#message').html(Print.userInfo(name, totalPoints, data.length));
       $('main').show();
 
