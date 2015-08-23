@@ -50,6 +50,9 @@ $(document).ready(function () {
       }).show();
       $('#name').html(name);
       $('#date1').html('Learning since ' + date1);
+      $('#name-heading').html(name);
+      $('#totalPoints').html(totalPoints);
+      $('#totalAchievements').html(badges.length);
       $('#message').html(Print.userInfo(name, totalPoints, data.length));
       $('main').show();
 
