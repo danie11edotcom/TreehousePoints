@@ -14,6 +14,14 @@ body {
   text-align: center;
 }
 
+.bigNumbers {
+  font-size: 4em;
+}
+
+.numberTitle {
+  font-size: 1.75em;
+}
+
 /* Achievement Timeline Styles*/
 .mg-line1-color {
     stroke: #5fcf80;  /*Treehouse green*/
