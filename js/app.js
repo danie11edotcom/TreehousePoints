@@ -47,7 +47,7 @@ $(document).ready(function () {
       $('#gravatar').attr({
           src: gravatar,
           alt: "user profile picture"
-      }).show();
+      });
       $('#name').html(name);
       $('#date1').html('Learning since ' + date1);
       $('#name-heading').html(name);
