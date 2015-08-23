@@ -35,7 +35,6 @@ var Data = (function() {
     for (var key in obj) {
       newArray.push({"day": key, "achievements": obj[key]});
     }
-    console.log(newArray);
     return newArray;
   };
 
