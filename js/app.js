@@ -44,6 +44,7 @@ $(document).ready(function () {
       var data = Data.sortPoints(Data.extractPoints(Data.objCopy(points)));
 
       //add message and gravatar to <main> section and make it visible
+     $('#errorDisplay').hide();
       $('#gravatar').attr({
           src: gravatar,
           alt: "user profile picture"
@@ -110,10 +111,13 @@ $(document).ready(function () {
         console.log(Print.conLogError());
         
         //show message that profile was not found and hide img element
-        //links on suggested profiles not working; should resolve with history api popstate feature add
         $('#gravatar').hide();
-        $('#message').html(Print.jsonFail(user, "daniellehill2", "mikethefrog"));
-        $('main').show();
+        $('#errorDisplay').html(Print.jsonFail(user, "daniellehill2", "mikethefrog")).show();
+        $('#name').html('User Name');
+        $('#date1').html('Learning since...');
+        $('#name-heading').html('User Name');
+        $('#totalPoints').html('# Points');
+        $('#totalAchievements').html('# Achievements');
       
         //clear charts (prevents previously displayed charts from showing)
         Charts.clearContent('#timeseries');
