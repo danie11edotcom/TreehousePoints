@@ -17,7 +17,7 @@ var Print = (function() {
 
 	var btnText = {
 			disabled: "searching...",
-			enabled: "Show Points"
+			enabled: "Search"
 		};
 
 	var conLogError = function (){
