@@ -1,10 +1,11 @@
 # Treehouse Student Dashboard
 
-A [dashboard](http://danie11edotcom.github.io/TreehousePoints/) that displays an achievement (badges earned) timeline and abar graph of points earned by subject for Treehouse students.
+A [dashboard](http://danie11edotcom.github.io/TreehousePoints/) that displays an achievement (badges earned) timeline and a bar graph of points earned by subject for Treehouse students.
 
 ## Getting Started
 Enter your [Treehouse](https://teamtreehouse.com) student profile name to see your profile picture and points earned by category.
-Not a Treehouse student? Enter daniellehill2 and checkout my stats to see how the app works.
+
+Not a Treehouse student? No problem. Enter daniellehill2 and checkout my stats to see how the app works.
 
 ## Dependencies
 - [jQuery](http://jquery.com/) v1.11.2 or later
