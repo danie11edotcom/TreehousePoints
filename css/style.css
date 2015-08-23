@@ -63,6 +63,13 @@ svg {
   display: none;
 }
 */
+/******************************************************************************/
+body {font-family: 'Open Sans'}
+.sidebar {text-align: center;}
+#gravatar {border: 4px solid #777;}
+
+#sidebar {text-align: center;}
+
 /* Achievement Timeline Styles*/
 .mg-line1-color {
     stroke: #5fcf80;  /*Treehouse green*/
@@ -106,10 +113,8 @@ svg {
   section { width: 80%; 
             border-radius: 8px;
             box-shadow: 0px 1px 0px 0px rgba(0,0,0, 0.1);
-  }
-  h1      {
-            font-size: 2em;
-  }
+}
+
   svg     {
             width: 80%;
 }
