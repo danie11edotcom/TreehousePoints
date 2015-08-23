@@ -40,7 +40,7 @@ $(document).ready(function () {
       var gravatar = info.gravatar_url;
       var badges = info.badges;
       var date1 = badges[0].earned_date.slice(0,4);
-      var tsData = Data.arrOfObjs(Data.badgesPerDay(Data.getDate(Data.getTimeStamps(badges)))); //pass to d3.js for time series
+      var tsData = Data.arrOfObjs(Data.badgesPerDay(Data.getDate(Data.getTimeStamps(badges))));
       var data = Data.sortPoints(Data.extractPoints(Data.objCopy(points)));
 
       //add message and gravatar to <main> section and make it visible
@@ -51,17 +51,14 @@ $(document).ready(function () {
       $('#name').html(name);
       $('#date1').html('Learning since ' + date1);
       $('#name-heading').html(name);
-      $('#totalPoints').html(totalPoints);
-      $('#totalAchievements').html(badges.length);
-      $('#message').html(Print.userInfo(name, totalPoints, data.length));
-      $('main').show();
+      $('#totalPoints').html(totalPoints.toLocaleString());
+      $('#totalAchievements').html(badges.length.toLocaleString());
 
       //Add jsonPath to footer and make visible
       $('#footnote').html(Print.footer(jsonPath)).show();
 
       //Plot chart of points using d3
-      //set SVG size variables -- need to be based on container size for resizing
-      //var tsChartSize = Charts.size(800, 275, 4);
+      //set SVG size variable for bar chart
       var barChartSize = Charts.size(800, 533, 4);  // Originial Aspect Ration: 800 / 450 = 1.777777  550/350=1.5714285714285714
 
       //set linear scale for x-axis for bar chart
@@ -78,12 +75,11 @@ $(document).ready(function () {
       var svg = d3.select("#chart")
         .append("svg")
         .attr("width", barChartSize.w)
-        .attr("height", barChartSize.h)  //added width and height to test effect in browsers with vB and pAR
-        .attr("viewBox", "0 0 " + barChartSize.w + " " + barChartSize.h + "" )  //set viewBox and perserveAspectRatio for responsiveness 
+        .attr("height", barChartSize.h)
+        .attr("viewBox", "0 0 " + barChartSize.w + " " + barChartSize.h + "" ) 
         .attr("perserveAspectRatio", "xMinYMin");
 
-      //create and label charts
-      //time series
+      //create and label charts for time series
       var tsDataMG = MG.convert.date(tsData, 'day')
       MG.data_graphic({
         data: tsData,
@@ -96,7 +92,7 @@ $(document).ready(function () {
         xax_start_at_min: true
       });
 
-      //bar chart
+      //create and label charts for bar chart
       Charts.createBarChartHorz(svg, data, barChartSize.h, xScale, barChartSize.p);
       Charts.labelBarChartHorz(svg, data, barChartSize.p, barChartSize.h, "sans-serif", "black", "text");
 
