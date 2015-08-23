@@ -23,6 +23,12 @@ body {
   font-size: 1.75em;
 }
 
+#errorDisplay {
+  font-size: 2em;
+  color: #f00;
+  display: none;
+}
+
 /* Achievement Timeline Styles*/
 .mg-line1-color {
     stroke: #5fcf80;  /*Treehouse green*/
