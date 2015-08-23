@@ -1,74 +1,18 @@
-
-/*Body Styles*/
-/*body {
-  background-color: #edeff0;
-  font-family: 'Open Sans', sans-serif;
-  padding: 15px 0 0 0;
+body {
+  font-family: 'Open Sans'
 }
-*/
-/* Header Styles */
-/*header {
-  width: 95%;
-  border: 2px solid white;
-  margin-bottom: 0.75em;
-  background: #fff;
-  border-radius: 6px;
+
+.sidebar {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0px 2px 0px 0px rgba(0,0,0, 0.1);
 }
-*/
-/*h1 {
-  font-size: 2.125em;
+
+#gravatar {
+  border: 4px solid #777;
 }
-*/
-/* Body Styles */
-/*main {
+
+#sidebar {
   text-align: center;
-  display: none;
 }
-
-section {
-  background-color: #fff;
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 6px;
-  box-shadow: 0px 2px 0px 0px rgba(0,0,0, 0.1);
-}
-*/
-/*img {
-  margin-top: 1.5em;
-  border: 8px solid #edeff0; /*edeff0*/
- /* border-radius: 50%;
-}
-
-#message {
-  width: 90%;
-  margin: 0 auto;
-  /*margin-left: auto;
-  margin-right: auto;*/
-/*  padding-top: .75em; 
-  font-size: 1.25em;
-}
-
-svg {
-  width: 85%; 
-}
-
-
-#footnote {
-  text-align: center; 
-  display: none;
-}
-*/
-/******************************************************************************/
-body {font-family: 'Open Sans'}
-.sidebar {text-align: center;}
-#gravatar {border: 4px solid #777;}
-
-#sidebar {text-align: center;}
 
 /* Achievement Timeline Styles*/
 .mg-line1-color {
@@ -83,7 +27,7 @@ body {font-family: 'Open Sans'}
     fill: #9fe2b2;
 }
 
-/* Set chart topic colors to match Treehouse */
+/* Set chart topic colors to match Treehouse subject colors */
 
 .html { fill: #39ADD1; }
 .css { fill: #3079AB;}
@@ -100,7 +44,7 @@ body {font-family: 'Open Sans'}
 .java { fill: #2c9676;}
 .digital_literacy { fill: #c38cd4;}
 
-/*Data values (svg text elements) styles*/
+/*Data values (bar chart svg text elements) styles*/
 .text {
   text-anchor: start;
   alignment-base: middle;
