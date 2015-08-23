@@ -83,7 +83,6 @@ $(document).ready(function () {
       //time series
       var tsDataMG = MG.convert.date(tsData, 'day')
       MG.data_graphic({
-        title: 'Achievement Timeline',
         data: tsData,
         width: 800,
         height: 275,
