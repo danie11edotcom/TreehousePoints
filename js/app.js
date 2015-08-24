@@ -90,7 +90,9 @@ $(document).ready(function () {
         x_accessor: 'day',
         y_accessor: 'achievements',
         missing_is_zero: true,
-        xax_start_at_min: true
+        xax_start_at_min: true,
+        yax_count: 7,
+        point_size: 3.5
       });
 
       //create and label charts for bar chart
