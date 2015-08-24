@@ -30,6 +30,16 @@ body {
 }
 
 /* Achievement Timeline Styles*/
+path.mg-main-area {
+    opacity: 0.4;
+}
+
+path.mg-main-line {
+    fill: none;
+    opacity: 0.8;
+    stroke-width: 2px;
+}
+
 .mg-line1-color {
     stroke: #5fcf80;  /*Treehouse green*/
 }
