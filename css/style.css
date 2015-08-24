@@ -40,6 +40,28 @@ path.mg-main-line {
     stroke-width: 2px;
 }
 
+.mg-x-axis line,
+.mg-y-axis line {
+    opacity: .5;
+    shape-rendering: auto;
+    stroke: #000;/*#b3b2b2*/
+    stroke-width: 2px;
+}
+
+.mg-x-axis text,
+.mg-y-axis text,
+.mg-histogram .axis text {
+    fill: black;
+    font-size: 1.5rem;
+    opacity: 1;
+}
+
+.mg-year-marker text {
+    fill: black;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
 .mg-line1-color {
     stroke: #5fcf80;  /*Treehouse green*/
 }
