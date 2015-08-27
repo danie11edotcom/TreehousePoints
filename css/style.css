@@ -125,7 +125,7 @@ path.mg-main-line {
 }
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-   #name-heading {
+   #name-heading, #errorDisplay {
     margin-top: 0;
   }
 }
