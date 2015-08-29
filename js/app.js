@@ -140,17 +140,22 @@ $(document).ready(function () {
         };  
 
         history.pushState(pageData, pageData.title, pageData.url);
-        console.log(history.length);
-
+        console.log('History length: ' + history.length);
   });   //end submit
+
+  //On popstate change input val to user name in url and submit form
+ // window.addEventListener('popstate', function(event) {
+   // console.log('Popstate fired. History length = ' + history.length);
+/*    //history.back();
+    var state = event.state;
+    $('#input').val(location.pathname.slice(1));
+    //$('form').submit();
+  });*/
 
   //On popstate change input val to user name in url and submit form
   window.addEventListener('popstate', function(event) {
     console.log('Popstate fired. History length = ' + history.length);
-/*    //history.back();
-    var state = event.state;
     $('#input').val(location.pathname.slice(1));
-    //$('form').submit();*/
   });
 
 });    //end ready
