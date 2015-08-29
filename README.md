@@ -7,6 +7,11 @@ Enter your [Treehouse](https://teamtreehouse.com) student profile name to see yo
 
 Not a Treehouse student? No problem. Enter daniellehill2 and checkout my stats to see the dashboard in action.
 
+## How It Looks
+Example showing my (daniellehill2) Treehouse achievement and points data
+
+![Dashboard for Danielle Hill's Treehouse profile](https://github.com/danie11edotcom/TreehousePoints/blob/master/img/dashboard-gif.gif)
+
 ## Dependencies
 - [jQuery](http://jquery.com/) v1.11.2 or later
 - [d3.js](http://d3js.org/) v3 or later
