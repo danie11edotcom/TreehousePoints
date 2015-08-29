@@ -136,7 +136,6 @@ $(document).ready(function () {
         var pageData = {
             title: "Treehouse Dashboard",
             url: user,
-            user: user
         };  
 
         history.pushState(pageData, pageData.title, pageData.url);
@@ -144,18 +143,10 @@ $(document).ready(function () {
   });   //end submit
 
   //On popstate change input val to user name in url and submit form
- // window.addEventListener('popstate', function(event) {
-   // console.log('Popstate fired. History length = ' + history.length);
-/*    //history.back();
-    var state = event.state;
-    $('#input').val(location.pathname.slice(1));
-    //$('form').submit();
-  });*/
-
-  //On popstate change input val to user name in url and submit form
   window.addEventListener('popstate', function(event) {
     console.log('Popstate fired. History length = ' + history.length);
     $('#input').val(location.pathname.slice(1));
+    //$.getJSON("http://teamtreehouse.com/" + location.pathname.slice(1) + ".json", execute);
   });
 
 });    //end ready
