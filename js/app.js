@@ -143,11 +143,12 @@ $(document).ready(function () {
   });   //end submit
 
   //On popstate change input val to user name in url and submit form
-  window.addEventListener('popstate', function() {
-    console.log('Popstate fired');
+/*  window.addEventListener('popstate', function() {
+    console.log('Popstate fired. History length = ' + history.length);
+    history.back();
     $('#input').val(location.pathname.slice(1));
     $('#input').submit();
-  });
+  });*/
 
 });    //end ready
 
