@@ -135,7 +135,7 @@ $(document).ready(function () {
         //create state Object to pass to pushState method
         var pageData = {
             title: "Treehouse Points",
-            url: "/#"+ user,
+            url: user,
             user: user
         };  
 
@@ -145,7 +145,7 @@ $(document).ready(function () {
   //On popstate change input val to user name in url and submit form
   window.addEventListener('popstate', function() {
     console.log('Popstate fired');
-    $('#input').val('mikethefrog');
+    $('#input').val(history.state.url);
     $('#input').submit();
   });
 
