@@ -134,7 +134,7 @@ $(document).ready(function () {
       //use HTML History API to update URL and allow back and forward navigation
         //create state Object to pass to pushState method
         var pageData = {
-            title: "Treehouse Points",
+            title: "Treehouse Dashboard",
             url: user,
             user: user
         };  
@@ -145,7 +145,7 @@ $(document).ready(function () {
   //On popstate change input val to user name in url and submit form
   window.addEventListener('popstate', function() {
     console.log('Popstate fired');
-    $('#input').val(history.state.url);
+    $('#input').val(location.pathname.slice(1));
     $('#input').submit();
   });
 
