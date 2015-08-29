@@ -9,6 +9,7 @@ Not a Treehouse student? No problem. Enter daniellehill2 and checkout my stats t
 
 ## How It Looks
 Example showing my (daniellehill2) Treehouse achievement and points data
+
 ![Dashboard for Danielle Hill's Treehouse profile](https://github.com/danie11edotcom/TreehousePoints/blob/master/img/dashboard-gif.gif)
 
 ## Dependencies
