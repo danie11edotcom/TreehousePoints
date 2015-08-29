@@ -6,7 +6,7 @@ var Print = (function() {
 	};
 
 	var jsonFail = function(user, sample1, sample2) {
-		var c = "Sorry, no profiles match " + user + ". Try <a href=\"#" + sample1 + "\"> " +sample1 + "</a> or <a href=\"#" + sample2 + "\">" +sample2 +"</a>";
+		var c = "Sorry, no profiles match " + user + ". Try <a id='sample1' href=\"#" + sample1 + "\"> " +sample1 + "</a> or <a id='sample2' href=\"#" + sample2 + "\">" +sample2 +"</a>";
 		return c;
 	};
 
