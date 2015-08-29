@@ -115,6 +115,12 @@ $(document).ready(function () {
         //show message that profile was not found and hide img element
         $('#gravatar').hide();
         $('#errorDisplay').html(Print.jsonFail(user, "daniellehill2", "mikethefrog")).show();
+        $('#sample1').click(function() {
+           $('#input').val("daniellehill2");
+        });
+        $('#sample2').click(function() {
+           $('#input').val( "mikethefrog");
+        });
         $('#name').html('User Name');
         $('#date1').html('Learning since...');
         $('#name-heading').html('User Name');
