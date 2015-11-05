@@ -13,7 +13,7 @@ $(document).ready(function () {
     var $inputField = $('#input');
     var $submitButton = $('#submit');
     var user = $inputField.val();
-    var jsonPath = "http://teamtreehouse.com/" + user + ".json";
+    var jsonPath = "https://teamtreehouse.com/" + user + ".json";
 
     //Function to disable/enable input and submit btn and change btn text
     var disableFormEl = function(bool) {
