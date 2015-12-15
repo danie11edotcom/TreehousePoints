@@ -32,7 +32,8 @@ var Charts = (function() {
        return scale(d[1]);
     })
     .attr("height", (h / data.length) - p)
-    .attr("class", function (d) {return d[2]})
+    //.attr("class", function (d) {return d[2]})
+    .attr("class", function (d) { return (d[2] === 'c#') ? 'csharp' : d[2]; })
     //add shorthand if then statement to detect if C# is skill and make class name csharp;
   };
 
